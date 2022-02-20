@@ -1,0 +1,30 @@
+[package]
+name = "Three-Kindoms-NFT"
+version = "1.1.0"
+authors = ["hthuang <hht2015ily@gmail.com>"]
+edition = "2018"
+
+[dev-dependencies]
+near-sdk = "3.1.0"
+near-sdk-sim = "3.1.0"
+near-contract-standards = "3.1.1"
+nft-factory = { path =  "./nft-factory" }
+nft-loot-box = { path =  "./nft-loot-box" }
+nft-hero = { path =  "./nft-hero" }
+
+[profile.release]
+codegen-units = 1
+# Tell `rustc` to optimize for small code size.
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+# Opt into extra safety checks on arithmetic operations https://stackoverflow.com/a/64136471/249801
+overflow-checks = true
+
+[workspace]
+members = [
+    "nft-factory",
+    "nft-hero",
+    "nft-loot-box",
+]
